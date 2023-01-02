@@ -30,7 +30,8 @@ const Navbar = () => {
         {
             id: 3,
             link: 'Library',
-            href: 'https://portal.futo.edu.ng/',
+            href: '/resume.docx',
+            download: true,
             child: (
                 <>
                 library <FaBook size={25}/> 
@@ -90,10 +91,14 @@ const Navbar = () => {
 
         <div className='md:hidden fixed top-[40%] left-0'>
         <ul>
-                {lists.map(({id, style, child, href})=>(
+                {lists.map(({id, style, child, href, download})=>(
                     <li key={id} className={"p-3 flex hover:ml-[-5px]  items-center duration-300 hover:rounded-md w-40 h-14 bg-gradient-to-r from-lime-500 via-lime-400 to-lime-200 ml-[-100px]" +
                     " " + style}>
-                        <a className='text-[16px] font-bold  font-special flex items-center w-full justify-between space-x-4' href={href}>
+                        <a className='text-[16px] font-bold  font-special flex items-center w-full justify-between space-x-4' 
+                        href={href}
+                        download={download}
+                        target="_blank"
+                        rel="noreferrer">
                             {child}
                            
                         </a>
