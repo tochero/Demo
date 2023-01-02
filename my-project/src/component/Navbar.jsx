@@ -45,9 +45,27 @@ const Navbar = () => {
             </ul>
         </div>
 
-        <div onClick={()=>setNav(!nav)} className='md:hidden flex items-center'>
-           {nav?<FaBars className='liner p-2 ' size={40}/> : <FaTimes className='liner p-2 ' size={40} />}
+        <div onClick={()=>setNav(!nav)} className='md:hidden flex items-center z-10'>
+           {nav?<FaTimes className='liner p-2 ' size={40}/> : <FaBars className='liner p-2 ' size={40} />}
         </div>
+
+        {nav &&  <div className='md:hidden absolute top-0 left-0 h-screen w-[80%] flex flex-col duration-300 justify-center items-center bg-gradient-to-tl from-gray-100 via-gray-300 to-gray-200 md:w-[60%] lg:w-[30%]'>
+            <h1 className='absolute top-[3%] text-center text-red-400 mb-12'>The real-Site</h1>
+        <ul className='flex flex-col'>
+                {lists.map(({id, link, href})=>(
+                    <li className='bg-white mb-20 p-3 rounded-md text-center w-60 hover:bg-black duration-200 group' key={id}>
+                        <a className='[16px] font-bold group-hover:text-cyan-400 duration-500 font-special' href={href}>
+                            {link}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+        
+        
+        }
+
+       
       </div>
     </div>
   )
