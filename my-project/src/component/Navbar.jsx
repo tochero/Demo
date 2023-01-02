@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import {FaCamera, FaBars, FaTimes} from 'react-icons/fa'
+import {FaCamera, FaBars, FaTimes, FaHome, FaGlobe, FaBook, FaGamepad} from 'react-icons/fa'
 const Navbar = () => {
     const [nav, setNav] = useState(false);
 
@@ -8,22 +8,45 @@ const Navbar = () => {
         {
             id: 1,
             link: 'Home',
-            href: 'https://github.com/tochero/Lesson.git'
+            href: 'https://github.com/tochero/Lesson.git',
+            child: (
+                <>
+                Home<FaHome size={25}/> 
+                </>
+            ),
+            style: "rounded-tr-md"
+
         },
         {
             id: 2,
             link: 'Explorer',
-            href: 'https://www.thenetnaija.net/videos/movies'
+            href: 'https://www.thenetnaija.net/videos/movies',
+            child: (
+                <>
+                Explorer <FaGlobe size={25}/> 
+                </>
+            )
         },
         {
             id: 3,
             link: 'Library',
-            href: 'https://portal.futo.edu.ng/'
+            href: 'https://portal.futo.edu.ng/',
+            child: (
+                <>
+                library <FaBook size={25}/> 
+                </>
+            )
         },
         {
             id: 4,
-            link: 'Specials',
-            href: 'https://www.callofduty.com/'
+            link: 'specials',
+            href: 'https://www.callofduty.com/',
+            child: (
+                <>
+                Specials <FaGamepad size={25}/> 
+                </>
+            ),
+            style: "rounded-br-md"
         },
     ]
   return (
@@ -35,7 +58,7 @@ const Navbar = () => {
         </div>
         <div className=''>
             <ul className='hidden md:flex space-x-8 items-center h-full'>
-                {lists.map(({id, link, href})=>(
+                {lists.map(({id, child, link, href})=>(
                     <li className='' key={id}>
                         <a className='text-[16px] font-bold hover:text-white duration-500 font-special' href={href}>
                             {link}
@@ -56,14 +79,28 @@ const Navbar = () => {
                     <li className='bg-white mb-20 p-3 rounded-md text-center w-60 hover:bg-black duration-200 group' key={id}>
                         <a className='[16px] font-bold group-hover:text-cyan-400 duration-500 font-special' href={href}>
                             {link}
+                            
+                        </a>
+                        
+                    </li>
+                ))}
+            </ul>
+        </div>
+        }
+
+        <div className='md:hidden fixed top-[40%] left-0'>
+        <ul>
+                {lists.map(({id, style, child, href})=>(
+                    <li key={id} className={"p-3 flex hover:ml-[-5px]  items-center duration-300 hover:rounded-md w-40 h-14 bg-gradient-to-r from-lime-500 via-lime-400 to-lime-200 ml-[-100px]" +
+                    " " + style}>
+                        <a className='text-[16px] font-bold  font-special flex items-center w-full justify-between space-x-4' href={href}>
+                            {child}
+                           
                         </a>
                     </li>
                 ))}
             </ul>
         </div>
-        
-        
-        }
 
        
       </div>
