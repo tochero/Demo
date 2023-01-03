@@ -55,10 +55,10 @@ const Navbar = () => {
       <div className='flex justify-between container  mx-auto px-6 h-20'>
         <div className='flex items-center space-x-4'>
             <FaCamera size={30} />
-            <h1>classic drip</h1>
+            <h2>classic drip</h2>
         </div>
         <div className=''>
-            <ul className='hidden md:flex space-x-8 items-center h-full'>
+            <ul className='hidden md:flex space-x-8 lg:space-x-12 items-center h-full'>
                 {lists.map(({id, child, link, href})=>(
                     <li className='' key={id}>
                         <a className='text-[16px] font-bold hover:text-white duration-500 font-special' href={href}>
@@ -73,11 +73,11 @@ const Navbar = () => {
            {nav?<FaTimes className='liner p-2 ' size={40}/> : <FaBars className='liner p-2 ' size={40} />}
         </div>
 
-        {nav &&  <div className='md:hidden absolute top-0 left-0 h-screen w-[80%] flex flex-col duration-300 justify-center items-center bg-black md:w-[60%] lg:w-[30%]'>
+        {nav &&  <div className='md:hidden absolute top-0 left-0 bg-opacity-[95%] h-screen w-[80%] flex flex-col justify-center items-center bg-black md:w-[60%] lg:w-[30%]'>
             <h1 className='absolute top-[3%] text-center text-red-400 mb-12'>The real-Site</h1>
         <ul className='flex flex-col'>
                 {lists.map(({id, link, href})=>(
-                    <li className='bg-white mb-20 p-3 rounded-md text-center w-60 hover:bg-black duration-200 group' key={id}>
+                    <li className='bg-white mb-20 p-3 rounded-md text-center w-60 hover:bg-gray-700 duration-200 group' key={id}>
                         <a className='[18px] font-bold group-hover:text-cyan-400 duration-500 font-special' href={href}>
                             {link}
                             

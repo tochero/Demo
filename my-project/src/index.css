@@ -9,6 +9,9 @@
 
 @layer base{
  h1{
+  @apply text-[30px] font-classic
+ };
+ h2{
   @apply text-[24px] font-classic
  }
 
