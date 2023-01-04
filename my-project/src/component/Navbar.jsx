@@ -58,7 +58,7 @@ const Navbar = () => {
             <h2>classic drip</h2>
         </div>
         <div className=''>
-            <ul className='hidden md:flex space-x-8 lg:space-x-12 items-center h-full text-white'>
+            <ul className='hidden md:flex space-x-5 lg:space-x-12 items-center h-full text-white'>
                 {lists.map(({id, child, link, href})=>(
                     <li className='' key={id}>
                         <a className='text-[16px] font-bold hover:text-gray-400 duration-500 font-special' href={href}>
