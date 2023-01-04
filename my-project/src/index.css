@@ -14,10 +14,14 @@
  h2{
   @apply text-[24px] font-classic
  }
+}
 
  @layer components{
   .liner{
     @apply p-1 rounded-full shadow-slate-700 shadow-md bg-lime-200
   }
+  .btn{
+    @apply px-6 rounded-full py-3 shadow-slate-400 shadow-lg bg-gradient-to-r from-black via-gray-500 to-gray-300
+  }
  }
-}
+
