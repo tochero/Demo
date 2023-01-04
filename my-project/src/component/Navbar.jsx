@@ -51,17 +51,17 @@ const Navbar = () => {
         },
     ]
   return (
-    <div className='bg-gradient-to-r from-lime-200 via-lime-400 to-lime-600'>
+    <div className='bg-black'>
       <div className='flex justify-between container  mx-auto px-6 h-20'>
-        <div className='flex items-center space-x-4'>
-            <FaCamera size={30} />
+        <div className='flex items-center text-white space-x-4'>
+            <FaCamera className='text-gray-200' size={30} />
             <h2>classic drip</h2>
         </div>
         <div className=''>
-            <ul className='hidden md:flex space-x-8 lg:space-x-12 items-center h-full'>
+            <ul className='hidden md:flex space-x-8 lg:space-x-12 items-center h-full text-white'>
                 {lists.map(({id, child, link, href})=>(
                     <li className='' key={id}>
-                        <a className='text-[16px] font-bold hover:text-white duration-500 font-special' href={href}>
+                        <a className='text-[16px] font-bold hover:text-gray-400 duration-500 font-special' href={href}>
                             {link}
                         </a>
                     </li>
