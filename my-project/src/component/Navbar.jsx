@@ -1,114 +1,146 @@
-import React from 'react'
-import { useState } from 'react'
-import {FaCamera, FaBars, FaTimes, FaHome, FaGlobe, FaBook, FaGamepad} from 'react-icons/fa'
+import React, { useState } from 'react'
+import {GiAfrica} from 'react-icons/gi'
+import {FaBars, FaTimes} from 'react-icons/fa'
+
+
 const Navbar = () => {
-    const [nav, setNav] = useState(false);
+  const[show, setShow] = useState(false);
+  const subject = [
+    {
+      id: 1,
+      href: "www.maths.com",
+      title: "Mathematics",
+    },
+    {
+      id: 2,
+      href: "www.maths.com",
+      title: "English Language",
+    },
+    {
+      id: 3,
+      href: "www.maths.com",
+      title: "Basic Tech",
+    },
+    {
+      id: 4,
+      href: "www.maths.com",
+      title: "Agric Science",
+    },
+    {
+      id: 5,
+      href: "www.maths.com",
+      title: "Biology",
+    },
+    {
+      id: 6,
+      href: "www.maths.com",
+      title: "Geography",
+    },
+    {
+      id: 7,
+      href: "www.maths.com",
+      title: "Accounting",
+    },
+    {
+      id: 8,
+      href: "www.maths.com",
+      title: "History",
+    },
+    {
+      id: 9,
+      href: "www.maths.com",
+      title: "computer Science",
 
-    const lists = [
-        {
-            id: 1,
-            link: 'Home',
-            href: 'https://github.com/tochero/Lesson.git',
-            child: (
-                <>
-                Home<FaHome size={25}/> 
-                </>
-            ),
-            style: "rounded-tr-md"
+    },
+    {
+      id: 10,
+      href: "www.maths.com",
+      title: "civic Education",
+    },
 
-        },
-        {
-            id: 2,
-            link: 'Explorer',
-            href: 'https://www.thenetnaija.net/videos/movies',
-            child: (
-                <>
-                Explorer <FaGlobe size={25}/> 
-                </>
-            )
-        },
-        {
-            id: 3,
-            link: 'Library',
-            href: '/resume.docx',
-            download: true,
-            child: (
-                <>
-                library <FaBook size={25}/> 
-                </>
-            )
-        },
-        {
-            id: 4,
-            link: 'specials',
-            href: 'https://www.callofduty.com/',
-            child: (
-                <>
-                Specials <FaGamepad size={25}/> 
-                </>
-            ),
-            style: "rounded-br-md"
-        },
+  
     ]
+  const links = [
+    {
+      id: 1,
+      href: "https://github.com/tochero/tochero.github.io",
+      title: "Homez"
+    },
+    {
+      id: 2,
+      href: "https://github.com/tochero/tochero.github.io",
+      title: "Books"
+    },
+    {
+      id: 3,
+      href: "https://github.com/tochero/tochero.github.io",
+      title: "Accounts"
+    },
+    {
+      id: 4,
+      href: "https://github.com/tochero/tochero.github.io",
+      title: "Courses"
+    },
+  ]
   return (
-    <div className='bg-black'>
-      <div className='flex justify-between container  mx-auto px-6 h-20'>
-        <div className='flex items-center text-white space-x-4'>
-            <FaCamera className='text-gray-200' size={30} />
-            <h2>classic drip</h2>
-        </div>
-        <div className=''>
-            <ul className='hidden md:flex space-x-5 lg:space-x-12 items-center h-full text-white'>
-                {lists.map(({id, child, link, href})=>(
-                    <li className='' key={id}>
-                        <a className='text-[16px] font-bold hover:text-gray-400 duration-500 font-special' href={href}>
-                            {link}
-                        </a>
-                    </li>
-                ))}
+    <div className='bg-gradient-to-br from-gray-400 via-slate-500 to-slate-600 min-h-screen'>
+      <div className='bg-gradient-to-br from-cyan-200 via-cyan-300 to-cyan-500'>
+
+          <div className='flex items-center px-3 justify-between container mx-auto h-[90px] md:px-6'>
+            <div className='flex space-x-3'>
+              <GiAfrica size={50} color={"green"}/>
+              <h1>The Zone</h1>
+            </div>
+          <div>
+            <ul className='hidden md:flex space-x-6  lg:space-x-12'>
+              {links.map(({id, href, title}) => (
+                  <li key={id}
+                  className="text-[18px] font-special font-bold "
+                  >
+                  <a className='hover:text-white hover:scale-[500px]' 
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                 >{title}</a>
+                </li>
+              )           
+              )}
             </ul>
-        </div>
-
-        <div onClick={()=>setNav(!nav)} className='md:hidden flex items-center z-10'>
-           {nav?<FaTimes className='liner p-2 ' size={40}/> : <FaBars className='liner p-2 ' size={40} />}
-        </div>
-
-        {nav &&  <div className='md:hidden absolute top-0 left-0 bg-opacity-[95%] h-screen w-[80%] flex flex-col justify-center items-center bg-black md:w-[60%] lg:w-[30%]'>
-            <h1 className='absolute top-[3%] text-center text-red-400 mb-12'>The real-Site</h1>
-        <ul className='flex flex-col'>
-                {lists.map(({id, link, href})=>(
-                    <li className='bg-white mb-20 p-3 rounded-md text-center w-60 hover:bg-gray-700 duration-200 group' key={id}>
-                        <a className='[18px] font-bold group-hover:text-cyan-400 duration-500 font-special' href={href}>
-                            {link}
-                            
-                        </a>
-                        
-                    </li>
-                ))}
-            </ul>
-        </div>
-        }
-
-        <div className='md:hidden fixed top-[40%] left-0'>
-        <ul>
-                {lists.map(({id, style, child, href, download})=>(
-                    <li key={id} className={"p-3 flex hover:ml-[-5px]  items-center duration-300 hover:rounded-md w-40 h-14 bg-gradient-to-r from-lime-500 via-lime-400 to-lime-200 ml-[-100px]" +
-                    " " + style}>
-                        <a className='text-[16px] font-bold  font-special flex items-center w-full justify-between space-x-4' 
-                        href={href}
-                        download={download}
-                        target="_blank"
-                        rel="noreferrer">
-                            {child}
-                           
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </div>
-
-       
+          </div>
+          
+          <div onClick={()=>{setShow(!show)}} className='md:hidden bg-black p-3 mr-4 rounded-full shadow-md shadow-white z-20'>
+              {show? <FaTimes size={25} color={"white"}/> : <FaBars size={25} color={"white"}/>}
+          </div>
       </div>
+      
+
+      {show && <div className='absolute top-0 left-0 bg-image bg-center bg-cover min-h-screen w-full bg-no-repeat overflow-y-scroll'>
+          <div className='absolute top-0 left-0 min-h-screen w-full bg-black bg-opacity-[82%] px-8 py-6  leading-9 font-bold text-[24px]'>
+            <h1 className='text-white pb-1  border-cyan-200 border-b-2 inline'>courses</h1>
+            
+            {subject.map(({id, href, title}) =>(
+              
+              <ul className='leading-[90px]'>
+                <li key={id} className="text-white">
+                  <a
+                  className='font-classic hover:text-cyan-300 hover:duration-500'
+                  target="_blank"
+                  rel="noreferrer"
+                   href={href}
+                   >
+                    {title}
+                  </a>
+                </li>
+              </ul>
+            ))}
+              
+          </div>
+      </div>
+      }
+      
+      
+      </div>
+
     </div>
   )
 }

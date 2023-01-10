@@ -23,5 +23,13 @@
   .btn{
     @apply px-6 rounded-full py-3 shadow-slate-400 shadow-lg bg-gradient-to-r from-black via-gray-500 to-gray-300
   }
+
+ }
+
+ @layer utilities{
+  .bg-image{
+    background-image: url('../public/assests/dark-side.jpg');
+    
+  }  
  }
 
