@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 const Main = () => {
+  
     useEffect(() =>{
       console.log('The component has mounted');
     }
