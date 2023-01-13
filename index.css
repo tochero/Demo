@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+h1{
+    font-size: 30px;
+    color: black;
+    
+}
+.div_1{
+    background: blue;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+ul{
+    display: flex;
+    list-style: none;
+   
+}
+li{
+     margin-left: 30px;
+     color: white;
+}
+li:hover{
+    cursor: pointer;
+    color: pink;
+
+}
