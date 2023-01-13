@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {FaBatteryHalf, FaBars, FaTimes } from 'react-icons/fa'
+import {FaBatteryHalf, FaBars, FaTimes, FaBatteryFull } from 'react-icons/fa'
 
 const Navbar = () => {
     const link =[
@@ -37,15 +37,18 @@ const Navbar = () => {
     <div className='bg-gradient-to-br from-blue-300 via-blue-400 to-black'>
         <div className='h-20 flex items-center justify-between container mx-auto px-3'>
             <div className='flex items-center gap-5'>
-                <h1 className='text-2xl font-special font-bold'>Half life</h1>
-                <FaBatteryHalf className='text-red-400' size={40} />
+                {!nav? <h1>HALF LIFE</h1> : <h1>FULL - LIFE</h1>}
+                {!nav? <FaBatteryHalf className='text-red-600' size={45}/> : <FaBatteryFull className='text-green-600' size={45}/>}
             </div>
 
             <div>
                 <ul className='hidden md:flex  space-x-12 text-white text-[20px] '>
                     {link.map(({title, id, href, style}) => (
                         <li key={id} className={style}>
-                            <a href={href}>
+                            <a href={href}
+                            target="_blank"
+                            rel="noreferrer"
+                            >
                                 {title}
                             </a>
                         </li>
